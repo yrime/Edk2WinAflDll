@@ -1,0 +1,2 @@
+LIBRARY "Edk2WinAflDll"
+EXPORTS WinAflProxyDll
