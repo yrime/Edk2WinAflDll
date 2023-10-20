@@ -10,8 +10,8 @@ inline void callAflProxyDll(int point) {
     add  esp, 4
   }
   */
-  void(*f_ptr)(int);
-  f_ptr = *((void(**)(int))(addrInject));
-  f_ptr(point);
+  typedef void func(int);
+  func* f = (func*)addrInject;
+  f(point);
 }
 #endif

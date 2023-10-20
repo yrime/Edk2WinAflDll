@@ -3,4 +3,4 @@
 #define IMPORT __declspec(dllimport)
 #define EXPORT extern "C" __declspec(dllexport)
 
-EXPORT void WinAflProxyDll(int point);
+IMPORT void WinAflProxyDll(int point);
