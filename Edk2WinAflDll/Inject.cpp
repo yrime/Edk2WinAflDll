@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 
 #include "pch.h"
 #include "Inject.h"
@@ -34,11 +33,11 @@ EXPORT void WinAflProxyDll(int point) {
 		}
 		printf("env %ls \n", envbuff);
 		wchar_t  *pt;
-		fuzzid = wcstok(envbuff, L":", &pt);
+		fuzzid = wcstok_s(envbuff, L":", &pt);
 		printf(" fuzzid %ls \n", fuzzid);
-		wcscpy(shm, TEXT("afl_shm_"));
+		wcscpy_s(shm, TEXT("afl_shm_"));
 		printf(" shm %ls \n", shm);
-		wcscat(shm, fuzzid);
+		wcscat_s(shm, fuzzid);
 		printf(" shm %ls \n", shm);
 		HANDLE mem = OpenFileMapping(FILE_MAP_ALL_ACCESS, FALSE, shm);
 		if (mem == NULL) {

@@ -33,9 +33,9 @@ EXPORT void WinAflProxyDll(int point) {
 		}
 		printf("env %ls \n", envbuff);
 		wchar_t  *pt;
-		fuzzid = wcstok(envbuff, L":", &pt);
+		fuzzid = wcstok_s(envbuff, L":", &pt);
 		printf(" fuzzid %ls \n", fuzzid);
-		wcscpy(shm, TEXT("afl_shm_"));
+		wcscpy_s(shm, TEXT("afl_shm_"));
 		printf(" shm %ls \n", shm);
 		wcscat(shm, fuzzid);
 		printf(" shm %ls \n", shm);
